@@ -40,12 +40,10 @@ def delete_allocation(db: Session, allocation_id: int):
         db.commit()
     return db_allocation
 
-def import_csv_data(db: Session, csv_content: str):
+def import_csv_data(db: Session, csv_lines):
     import csv
-    import io
     
-    f = io.StringIO(csv_content)
-    reader = csv.reader(f, delimiter=';')
+    reader = csv.reader(csv_lines, delimiter=';')
     try:
         header = next(reader)
     except StopIteration:
@@ -53,18 +51,21 @@ def import_csv_data(db: Session, csv_content: str):
         
     dates = [d.strip() for d in header[4:] if d.strip()]
     
-    # Pre-load master data to avoid redundant inserts and for mapping
-    existing_frames = {f.name: f.id for f in db.query(models.AllocationFrame).all()}
-    existing_requesters = {r.name: r.id for r in db.query(models.Requester).all()}
-    existing_projects = {p.code: p.id for p in db.query(models.Project).all()}
-    existing_resources = {r.name: r.id for r in db.query(models.Resource).all()}
+    # Pre-load master data maps
+    frame_map = {f.name: f.id for f in db.query(models.AllocationFrame).all()}
+    req_map = {r.name: r.id for r in db.query(models.Requester).all()}
+    proj_map = {p.code: p.id for p in db.query(models.Project).all()}
+    res_map = {r.name: r.id for r in db.query(models.Resource).all()}
     
-    new_frames = set()
-    new_requesters = set()
-    new_projects = set()
-    new_resources = set()
-    
-    csv_rows = []
+    # Pre-load existing allocations for the involved dates to handle upserts
+    # We do this once to avoid N*M queries
+    existing_allocs = {}
+    for date in dates:
+        allocs = db.query(models.Allocation).filter(models.Allocation.date == date).all()
+        for a in allocs:
+            existing_allocs[(a.resource_id, a.project_id, a.requester_id, a.frame_id, a.date)] = a
+
+    # Process rows one by one
     for row in reader:
         if len(row) < 4:
             continue
@@ -72,47 +73,30 @@ def import_csv_data(db: Session, csv_content: str):
         if not all([req_name, frame_name, proj_code, res_name]):
             continue
             
-        csv_rows.append(row)
-        if req_name not in existing_requesters: new_requesters.add(req_name)
-        if frame_name not in existing_frames: new_frames.add(frame_name)
-        if proj_code not in existing_projects: new_projects.add(proj_code)
-        if res_name not in existing_resources: new_resources.add(res_name)
+        # Ensure master data exists and get IDs
+        if req_name not in req_map:
+            new_req = models.Requester(name=req_name)
+            db.add(new_req)
+            db.commit()
+            req_map[req_name] = new_req.id
+        if frame_name not in frame_map:
+            new_frame = models.AllocationFrame(name=frame_name)
+            db.add(new_frame)
+            db.commit()
+            frame_map[frame_name] = new_frame.id
+        if proj_code not in proj_map:
+            new_proj = models.Project(code=proj_code)
+            db.add(new_proj)
+            db.commit()
+            proj_map[proj_code] = new_proj.id
+        if res_name not in res_map:
+            new_res = models.Resource(name=res_name)
+            db.add(new_res)
+            db.commit()
+            res_map[res_name] = new_res.id
 
-    # Insert new master data
-    for name in new_frames:
-        obj = models.AllocationFrame(name=name)
-        db.add(obj)
-    for name in new_requesters:
-        obj = models.Requester(name=name)
-        db.add(obj)
-    for name in new_projects:
-        obj = models.Project(code=name)
-        db.add(obj)
-    for name in new_resources:
-        obj = models.Resource(name=name)
-        db.add(obj)
-    db.commit()
+        req_id, frame_id, proj_id, res_id = req_map[req_name], frame_map[frame_name], proj_map[proj_code], res_map[res_name]
 
-    # Re-map IDs after inserts
-    frame_map = {f.name: f.id for f in db.query(models.AllocationFrame).all()}
-    req_map = {r.name: r.id for r in db.query(models.Requester).all()}
-    proj_map = {p.code: p.id for p in db.query(models.Project).all()}
-    res_map = {r.name: r.id for r in db.query(models.Resource).all()}
-
-    # Batch process allocations
-    # To handle upserts efficiently, we fetch existing allocations for the involved dates
-    existing_allocs = {} # key: (res_id, proj_id, req_id, frame_id, date)
-    for date in dates:
-        allocs = db.query(models.Allocation).filter(models.Allocation.date == date).all()
-        for a in allocs:
-            existing_allocs[(a.resource_id, a.project_id, a.requester_id, a.frame_id, a.date)] = a
-
-    for row in csv_rows:
-        req_id = req_map[row[0].strip()]
-        frame_id = frame_map[row[1].strip()]
-        proj_id = proj_map[row[2].strip()]
-        res_id = res_map[row[3].strip()]
-        
         for i, val in enumerate(row[4:]):
             if i >= len(dates): break
             date = dates[i]
@@ -134,10 +118,13 @@ def import_csv_data(db: Session, csv_content: str):
                         percentage=percentage
                     )
                     db.add(new_alloc)
+                    # Add to local map to prevent double-adding if CSV has duplicates
+                    existing_allocs[key] = new_alloc
             except ValueError:
                 continue
-    
-    db.commit()
+        
+        # Periodic commit to keep memory low and database consistent
+        db.commit()
 
 def seed_data(db: Session):
     # Check if we already have allocations (only seed if empty)
@@ -151,5 +138,4 @@ def seed_data(db: Session):
         return
 
     with open(csv_path, 'r', encoding='windows-1250') as f:
-        content = f.read()
-        import_csv_data(db, content)
+        import_csv_data(db, f)

@@ -81,7 +81,10 @@ async def import_data(file: UploadFile = File(...), db: Session = Depends(get_db
         decoded = content.decode('windows-1250')
     except UnicodeDecodeError:
         decoded = content.decode('utf-8')
-    crud.import_csv_data(db, decoded)
+    
+    import io
+    f = io.StringIO(decoded)
+    crud.import_csv_data(db, f)
     return {"status": "success"}
 
 @app.get("/api/export/csv")
