@@ -57,8 +57,31 @@ def import_csv_data(db: Session, csv_lines):
     proj_map = {p.code: p.id for p in db.query(models.Project).all()}
     res_map = {r.name: r.id for r in db.query(models.Resource).all()}
     
+    def get_id(model, name_attr, name_val, cache, db_session):
+        if name_val in cache:
+            return cache[name_val]
+        # Check DB again in case another worker just inserted it
+        existing = db_session.query(model).filter(getattr(model, name_attr) == name_val).first()
+        if existing:
+            cache[name_val] = existing.id
+            return existing.id
+        # Try to insert
+        try:
+            new_obj = model(**{name_attr: name_val})
+            db_session.add(new_obj)
+            db_session.commit()
+            db_session.refresh(new_obj)
+            cache[name_val] = new_obj.id
+            return new_obj.id
+        except Exception: # Likely IntegrityError from concurrent insert
+            db_session.rollback()
+            existing = db_session.query(model).filter(getattr(model, name_attr) == name_val).first()
+            if existing:
+                cache[name_val] = existing.id
+                return existing.id
+        return None
+
     # Pre-load existing allocations for the involved dates to handle upserts
-    # We do this once to avoid N*M queries
     existing_allocs = {}
     for date in dates:
         allocs = db.query(models.Allocation).filter(models.Allocation.date == date).all()
@@ -73,29 +96,14 @@ def import_csv_data(db: Session, csv_lines):
         if not all([req_name, frame_name, proj_code, res_name]):
             continue
             
-        # Ensure master data exists and get IDs
-        if req_name not in req_map:
-            new_req = models.Requester(name=req_name)
-            db.add(new_req)
-            db.commit()
-            req_map[req_name] = new_req.id
-        if frame_name not in frame_map:
-            new_frame = models.AllocationFrame(name=frame_name)
-            db.add(new_frame)
-            db.commit()
-            frame_map[frame_name] = new_frame.id
-        if proj_code not in proj_map:
-            new_proj = models.Project(code=proj_code)
-            db.add(new_proj)
-            db.commit()
-            proj_map[proj_code] = new_proj.id
-        if res_name not in res_map:
-            new_res = models.Resource(name=res_name)
-            db.add(new_res)
-            db.commit()
-            res_map[res_name] = new_res.id
+        # Ensure master data exists and get IDs using the robust helper
+        req_id = get_id(models.Requester, 'name', req_name, req_map, db)
+        frame_id = get_id(models.AllocationFrame, 'name', frame_name, frame_map, db)
+        proj_id = get_id(models.Project, 'code', proj_code, proj_map, db)
+        res_id = get_id(models.Resource, 'name', res_name, res_map, db)
 
-        req_id, frame_id, proj_id, res_id = req_map[req_name], frame_map[frame_name], proj_map[proj_code], res_map[res_name]
+        if not all([req_id, frame_id, proj_id, res_id]):
+            continue
 
         for i, val in enumerate(row[4:]):
             if i >= len(dates): break
