@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "BUSDEV"
+  },
+  {
+    "id": 2,
+    "name": "SZAB"
+  },
+  {
+    "id": 3,
+    "name": "MGMT"
+  },
+  {
+    "id": 4,
+    "name": "INSTR"
+  },
+  {
+    "id": 5,
+    "name": "ITASPBR21S"
+  },
+  {
+    "id": 6,
+    "name": "RECRUITING"
+  },
+  {
+    "id": 7,
+    "name": "PROFEDU"
+  },
+  {
+    "id": 8,
+    "name": "PROFDEV"
+  },
+  {
+    "id": 9,
+    "name": "DELIVERY"
+  },
+  {
+    "id": 10,
+    "name": "TRAIN"
+  }
+]

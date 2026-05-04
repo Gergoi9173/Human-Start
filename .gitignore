@@ -3,6 +3,7 @@ backend/venv/
 backend/__pycache__/
 backend/*.db
 backend/.pytest_cache/
+backend/export.json
 
 # Node
 frontend/node_modules/
@@ -16,3 +17,6 @@ Thumbs.db
 # Env
 .env
 .env.local
+
+# Large CSV data file
+*.csv

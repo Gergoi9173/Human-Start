@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Download, Upload, RefreshCw, Plus } from 'lucide-react';
+import { Download, Plus } from 'lucide-react';
 import { startOfWeek, format } from 'date-fns';
 
 import WeekPicker from './components/WeekPicker';
@@ -21,7 +21,6 @@ function App() {
   
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [selectedResource, setSelectedResource] = useState(null);
-  const [isImporting, setIsImporting] = useState(false);
 
   const startOfCurrentWeek = startOfWeek(selectedDate, { weekStartsOn: 1 });
   const dateString = format(startOfCurrentWeek, 'yyyy.MM.dd');
@@ -74,32 +73,7 @@ function App() {
     });
   };
 
-  const handleImportCSV = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
 
-    setIsImporting(true);
-    api.importCSV(file).then(() => {
-      // Re-load all data
-      Promise.all([
-        api.getResources(),
-        api.getProjects(),
-        api.getRequesters(),
-        api.getFrames(),
-        api.getAllocations(dateString)
-      ]).then(([resData, projData, reqData, frameData, allocData]) => {
-        setResources(resData);
-        setProjects(projData);
-        setRequesters(reqData);
-        setFrames(frameData);
-        setAllocations(allocData);
-        setIsImporting(false);
-      });
-    }).catch(err => {
-      setIsImporting(false);
-      alert("Import failed: " + err.message);
-    });
-  };
 
   return (
     <div className="min-h-screen bg-muted/20 text-foreground p-6 md:p-10 font-sans">
@@ -127,11 +101,7 @@ function App() {
               <span>Erőforrás foglalás</span>
             </button>
 
-            <label className="inline-flex items-center space-x-2 bg-white dark:bg-card border border-border px-4 py-2.5 rounded-xl shadow-sm hover:bg-muted transition-colors font-medium text-sm cursor-pointer">
-              {isImporting ? <RefreshCw className="w-4 h-4 animate-spin text-primary" /> : <Upload className="w-4 h-4" />}
-              <span>{isImporting ? 'Importing...' : 'Import CSV'}</span>
-              <input type="file" className="hidden" accept=".csv" onChange={handleImportCSV} disabled={isImporting} />
-            </label>
+
 
             <a 
               href={api.exportCsvUrl(dateString)}
