@@ -1,15 +1,17 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Download, Plus } from 'lucide-react';
+import { Download, Plus, LogOut } from 'lucide-react';
 import { startOfWeek, format } from 'date-fns';
 
 import WeekPicker from './components/WeekPicker';
 import Dashboard from './components/Dashboard';
 import AllocationTable from './components/AllocationTable';
 import AllocationForm from './components/AllocationForm';
+import Login from './components/Login';
 
 import * as api from './api';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
   
   const [resources, setResources] = useState([]);
@@ -26,6 +28,15 @@ function App() {
   const dateString = format(startOfCurrentWeek, 'yyyy.MM.dd');
 
   useEffect(() => {
+    const session = localStorage.getItem('isLoggedIn');
+    if (session === 'true') {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isLoggedIn) return;
+
     // Load Master Data
     Promise.all([
       api.getResources(),
@@ -38,15 +49,26 @@ function App() {
       setRequesters(reqData);
       setFrames(frameData);
     });
-  }, []);
+  }, [isLoggedIn]);
 
   const loadAllocations = useCallback(() => {
+    if (!isLoggedIn) return;
     api.getAllocations(dateString).then(setAllocations);
-  }, [dateString]);
+  }, [dateString, isLoggedIn]);
 
   useEffect(() => {
     loadAllocations();
   }, [loadAllocations]);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    localStorage.setItem('isLoggedIn', 'true');
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('isLoggedIn');
+  };
 
   const handleAddAllocation = (resource) => {
     setSelectedResource(resource);
@@ -73,7 +95,9 @@ function App() {
     });
   };
 
-
+  if (!isLoggedIn) {
+    return <Login onLogin={handleLogin} />;
+  }
 
   return (
     <div className="min-h-screen bg-muted/20 text-foreground p-6 md:p-10 font-sans">
@@ -82,7 +106,10 @@ function App() {
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div>
-            <h1 className="text-3xl font-extrabold tracking-tight text-foreground">Human-Start</h1>
+            <div className="flex items-center gap-3">
+              <h1 className="text-3xl font-extrabold tracking-tight text-foreground">Human-Start</h1>
+              <span className="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-md uppercase tracking-wider">Admin</span>
+            </div>
             <p className="text-muted-foreground mt-1 text-sm">Manage team allocations effortlessly.</p>
           </div>
           
@@ -101,8 +128,6 @@ function App() {
               <span>Erőforrás foglalás</span>
             </button>
 
-
-
             <a 
               href={api.exportCsvUrl(dateString)}
               className="inline-flex items-center space-x-2 bg-white dark:bg-card border border-border px-4 py-2.5 rounded-xl shadow-sm hover:bg-muted transition-colors font-medium text-sm"
@@ -111,6 +136,14 @@ function App() {
               <Download className="w-4 h-4" />
               <span>Export CSV</span>
             </a>
+
+            <button 
+              onClick={handleLogout}
+              className="inline-flex items-center justify-center w-10 h-10 bg-white dark:bg-card border border-border rounded-xl shadow-sm hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-900/20 transition-all"
+              title="Kijelentkezés"
+            >
+              <LogOut className="w-4 h-4" />
+            </button>
           </div>
         </div>
 
@@ -147,5 +180,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
