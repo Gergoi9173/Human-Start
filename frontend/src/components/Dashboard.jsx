@@ -11,7 +11,7 @@ export default function Dashboard({ resources, allocations }) {
   });
 
   const totalDays = resources.length * 5;
-  const utilizedDays = (Object.values(resourceTotals).reduce((sum, val) => sum + val, 0) / 100) * 5;
+  const utilizedDays = Math.round((Object.values(resourceTotals).reduce((sum, val) => sum + val, 0) / 100) * 5);
   const utilizationPercent = totalDays > 0 ? Math.round((utilizedDays / totalDays) * 100) : 0;
   
   const overAllocated = Object.entries(resourceTotals).filter(([_, total]) => total > 100).length;
