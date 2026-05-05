@@ -1,11 +1,13 @@
 [
   {
     "id": 1,
-    "code": "ERSDCDM05D"
+    "code": "ERSDCDM05D",
+    "name": "ERSTE - Papír alapon beérkezett küldemények digitalizálása"
   },
   {
     "id": 2,
-    "code": "NKMDWIS27D"
+    "code": "NKMDWIS27D",
+    "name": "NKM - DWH EDGE I.FÁZIS"
   },
   {
     "id": 3,
@@ -13,15 +15,18 @@
   },
   {
     "id": 4,
-    "code": "NKMFNDM25S"
+    "code": "NKMFNDM25S",
+    "name": "NKM - FileNet/BAW support 2025"
   },
   {
     "id": 5,
-    "code": "KHBANOD10D"
+    "code": "KHBANOD10D",
+    "name": "KHB - CM DELETE tanácsadás"
   },
   {
     "id": 6,
-    "code": "MVROSPR26S"
+    "code": "MVROSPR26S",
+    "name": "MAVIR - PRIZMA SUPPORT 2026"
   },
   {
     "id": 7,
@@ -29,15 +34,18 @@
   },
   {
     "id": 8,
-    "code": "HVKBWDM01D"
+    "code": "HVKBWDM01D",
+    "name": "Honvédkórház - Beszerzési WF"
   },
   {
     "id": 9,
-    "code": "PA2FNDM25S"
+    "code": "PA2FNDM25S",
+    "name": "Paks2 - FileNet support 2025"
   },
   {
     "id": 10,
-    "code": "NKMDWIS25S"
+    "code": "NKMDWIS25S",
+    "name": "NKM - DWH support 2025"
   },
   {
     "id": 11,
@@ -45,19 +53,23 @@
   },
   {
     "id": 12,
-    "code": "NKEOSPO26S"
+    "code": "NKEOSPO26S",
+    "name": "NKE - Support"
   },
   {
     "id": 13,
-    "code": "KSKCCAI01D"
+    "code": "KSKCCAI01D",
+    "name": "KSZK - AI ügyfélszolgálat támogatás"
   },
   {
     "id": 14,
-    "code": "NKMFNDM26S"
+    "code": "NKMFNDM26S",
+    "name": "NKM - FileNet/BAW support"
   },
   {
     "id": 15,
-    "code": "MAKFNDM24S"
+    "code": "MAKFNDM24S",
+    "name": "MÁK - FileNet támogatás projekt része"
   },
   {
     "id": 16,
@@ -65,7 +77,8 @@
   },
   {
     "id": 17,
-    "code": "PMIFNDM01D"
+    "code": "PMIFNDM01D",
+    "name": "PMI Magtár upgrade"
   },
   {
     "id": 18,
@@ -73,19 +86,23 @@
   },
   {
     "id": 19,
-    "code": "MAPFNDM26S"
+    "code": "MAPFNDM26S",
+    "name": "MAP - LTK/POSTA DC/FN Support"
   },
   {
     "id": 20,
-    "code": "TITFNDM23S"
+    "code": "TITFNDM23S",
+    "name": "OPUS TITÁSZ - Support"
   },
   {
     "id": 21,
-    "code": "ERSFNDM11D"
+    "code": "ERSFNDM11D",
+    "name": "ERSTE - Hiteles kivonatok WF készítése"
   },
   {
     "id": 22,
-    "code": "MVIFNDM25S"
+    "code": "MVIFNDM25S",
+    "name": "MVMI - ÉDFH support 2025"
   },
   {
     "id": 23,
@@ -97,39 +114,48 @@
   },
   {
     "id": 25,
-    "code": "GARFNDM26S"
+    "code": "GARFNDM26S",
+    "name": "Garnatiqa - Support 2025/26"
   },
   {
     "id": 26,
-    "code": "GENANCG26S"
+    "code": "GENANCG26S",
+    "name": "GENERALI - COGNOS SUPPORT 2026"
   },
   {
     "id": 27,
-    "code": "MVIFNDM26S"
+    "code": "MVIFNDM26S",
+    "name": "MVMI - FileNet support 2026-2028"
   },
   {
     "id": 28,
-    "code": "EGIFNDM23S"
+    "code": "EGIFNDM23S",
+    "name": "EGIS - FN/DC support"
   },
   {
     "id": 29,
-    "code": "NKMDWIS26S"
+    "code": "NKMDWIS26S",
+    "name": "NKM - DWH support 2026"
   },
   {
     "id": 30,
-    "code": "ERSFNDM10D"
+    "code": "ERSFNDM10D",
+    "name": "ERSTE - Jogosultságok kiosztó kialakítása"
   },
   {
     "id": 31,
-    "code": "HIPFNDM01D"
+    "code": "HIPFNDM01D",
+    "name": "HIPA - Integrált ügyviteli rendszer"
   },
   {
     "id": 32,
-    "code": "MVIFNDM26D"
+    "code": "MVIFNDM26D",
+    "name": "MVMI - UNITY"
   },
   {
     "id": 33,
-    "code": "OAHFNDM25S"
+    "code": "OAHFNDM25S",
+    "name": "OAH - FileNet support 2025"
   },
   {
     "id": 34,
@@ -137,7 +163,8 @@
   },
   {
     "id": 35,
-    "code": "NZRFNDM02D"
+    "code": "NZRFNDM02D",
+    "name": "NÜSZ - FilleNet verzió upgrade"
   },
   {
     "id": 36,
@@ -145,79 +172,98 @@
   },
   {
     "id": 37,
-    "code": "RGZFNDM31D"
+    "code": "RGZFNDM31D",
+    "name": "Richter - MEBIT"
   },
   {
     "id": 38,
-    "code": "MVRFNDM25S"
+    "code": "MVRFNDM25S",
+    "name": "MAVIR FN Support 2025-26"
   },
   {
     "id": 39,
-    "code": "CIBFNDM22S"
+    "code": "CIBFNDM22S",
+    "name": "CIB - Filenet support"
   },
   {
     "id": 40,
-    "code": "RAFANTM01D"
+    "code": "RAFANTM01D",
+    "name": "Raiffaisen - Minőségi tesztadat előállítás és adatmaszkolás"
   },
   {
     "id": 41,
-    "code": "NLBCMDM26S"
+    "code": "NLBCMDM26S",
+    "name": "NLB - CM Support"
   },
   {
     "id": 42,
-    "code": "NKMFNDM20D"
+    "code": "NKMFNDM20D",
+    "name": "NKM - FN DVACCS 2. ütem GEODOK-HAPDOC módosítások"
   },
   {
     "id": 43,
-    "code": "PA2BWDM08D"
+    "code": "PA2BWDM08D",
+    "name": "Paks2 - REV8 T&M"
   },
   {
     "id": 44,
-    "code": "MVRFNDM08D"
+    "code": "MVRFNDM08D",
+    "name": "MAVIR - IBM FileNet upgrade 2026"
   },
   {
     "id": 45,
-    "code": "KHBANOD04D"
+    "code": "KHBANOD04D",
+    "name": "KHB - OPUS OD tanácsadás 25Q3"
   },
   {
     "id": 46,
-    "code": "FNXOSPO02T"
+    "code": "FNXOSPO02T",
+    "name": "FORNAX - T&M 2026 PROJEKT RÉSZ"
   },
   {
     "id": 47,
-    "code": "NKMFNDM14D"
+    "code": "NKMFNDM14D",
+    "name": "NKM - FN UNITY"
   },
   {
     "id": 48,
-    "code": "ERSFNDM04D"
+    "code": "ERSFNDM04D",
+    "name": "ERSTE - Dokumentum feldolgozás AI eszközök támogatásával"
   },
   {
     "id": 49,
-    "code": "ERSDCDM03D"
+    "code": "ERSDCDM03D",
+    "name": "ERSTE - Datacap platform és adatgazdagítás"
   },
   {
     "id": 50,
-    "code": "ERSFNDM09D"
+    "code": "ERSFNDM09D",
+    "name": "ERSTE - Kafka integráció"
   },
   {
     "id": 51,
-    "code": "MBHFNDM01D"
+    "code": "MBHFNDM01D",
+    "name": "MBH - Document Management"
   },
   {
     "id": 52,
-    "code": "TITFNDM15D"
+    "code": "TITFNDM15D",
+    "name": "OPTESZ - E-mailen érkező és szkennelt számlák különálló mellékletének kezelése"
   },
   {
     "id": 53,
-    "code": "NZRFNDM26S"
+    "code": "NZRFNDM26S",
+    "name": "NÜSZ - FileNet support"
   },
   {
     "id": 54,
-    "code": "NZRFNDM25S"
+    "code": "NZRFNDM25S",
+    "name": "NÜSZ - FileNet support"
   },
   {
     "id": 55,
-    "code": "PRGBWDM01D"
+    "code": "PRGBWDM01D",
+    "name": "PRG - Digitális munkaügyi dokumentumkezelő és elektronikus aláírás rendszer"
   },
   {
     "id": 56,
@@ -225,6 +271,597 @@
   },
   {
     "id": 57,
-    "code": "KHBCMDM19S"
+    "code": "KHBCMDM19S",
+    "name": "KH - CM\\OD support"
+  },
+  {
+    "id": 58,
+    "code": "KHBNVED22S",
+    "name": "KH - eDoc Support 2023"
+  },
+  {
+    "id": 59,
+    "code": "TITFNDM01D",
+    "name": "OPUS TITÁSZ - FileNet bevezetés"
+  },
+  {
+    "id": 60,
+    "code": "NKMDWIS17D",
+    "name": "NKM - DWH HIEP DL platform"
+  },
+  {
+    "id": 61,
+    "code": "TITUMDM01D",
+    "name": "OPTESZ - Ultimate továbbfejlesztés"
+  },
+  {
+    "id": 62,
+    "code": "PMIFNDM24S",
+    "name": "PMI Magtár support"
+  },
+  {
+    "id": 63,
+    "code": "CASBWDR01D",
+    "name": "CASCADE - DRÓN PROJEKT BAW SPRINT1"
+  },
+  {
+    "id": 64,
+    "code": "GENANCO01L",
+    "name": "GENERALI - COGNOS LICENSZ"
+  },
+  {
+    "id": 65,
+    "code": "MVRFNDM25O",
+    "name": "MAVIR support - opcionális"
+  },
+  {
+    "id": 66,
+    "code": "MVIFNDM25D",
+    "name": "MVMI - DÁP DSO - eÜgyintézési front-end és back-end (V836461)"
+  },
+  {
+    "id": 67,
+    "code": "IQSIBDB03E",
+    "name": "IQSOFT - DB2 oktatás"
+  },
+  {
+    "id": 68,
+    "code": "KHBANTM25S",
+    "name": "KHB- Tesztadatmendzsment support 2025-2026"
+  },
+  {
+    "id": 69,
+    "code": "TITBWDM05D",
+    "name": "OPTESZ - Beszerzési igény - Verseny alóli felmentés engedélyezése"
+  },
+  {
+    "id": 70,
+    "code": "TITUMDM12D",
+    "name": "OPTESZ - Ultimate Ügyfélszolgálat - Automatikus email feldolgozás"
+  },
+  {
+    "id": 71,
+    "code": "ERSFNDM05D",
+    "name": "ERSTE - DC MOVE FN tanácsadás T&M"
+  },
+  {
+    "id": 72,
+    "code": "TITFNDM04D",
+    "name": "OPTESZ - DMS Ultimate - MVM Next kikapcsolás értesítő/posta"
+  },
+  {
+    "id": 73,
+    "code": "ERSANCG05D",
+    "name": "ERSTE - COGNOS T&M3 PROJEKT RÉSZE"
+  },
+  {
+    "id": 74,
+    "code": "TITBWDM03D",
+    "name": "OPTESZ - Beszerzési opció CR1"
+  },
+  {
+    "id": 75,
+    "code": "TITUMDM14D",
+    "name": "OPTESZ - Tagvállalati CR"
+  },
+  {
+    "id": 76,
+    "code": "TITUMDM13D",
+    "name": "OPTESZ - Új Szerződéstár Ultimateben"
+  },
+  {
+    "id": 77,
+    "code": "TITUMDM11D",
+    "name": "OPTESZ - RNY manuális és automatikus bekérdezés létrehozása és DÁP Modul bevezetés"
+  },
+  {
+    "id": 78,
+    "code": "KHBANOD05D",
+    "name": "KHB - OD SSO tanácsadás"
+  },
+  {
+    "id": 79,
+    "code": "OAHFNDM06D",
+    "name": "OAH - 2025 Fejlesztési keret"
+  },
+  {
+    "id": 80,
+    "code": "NKEOSPO25S",
+    "name": "NKE support + fejlesztés"
+  },
+  {
+    "id": 81,
+    "code": "100_TITUMDM15D",
+    "name": "OPTESZ - Ügyfélszolgálat TOP20"
+  },
+  {
+    "id": 82,
+    "code": "KHBCMDM02L",
+    "name": "KHB - Spectrum Scale licensz megújítása"
+  },
+  {
+    "id": 83,
+    "code": "NKMFNDM18D",
+    "name": "NKM - FN két új dokumentum típus létrehozása"
+  },
+  {
+    "id": 84,
+    "code": "NKMFNDM19D",
+    "name": "NKM - Szervezeti egység hierarchia bővítése"
+  },
+  {
+    "id": 85,
+    "code": "FNXOSPO01T",
+    "name": "FORNAX - T&M SUPPORT PROJEKT RÉSZ"
+  },
+  {
+    "id": 86,
+    "code": "KHBANOD08D",
+    "name": "KHB - OD SSO tanácsadás"
+  },
+  {
+    "id": 87,
+    "code": "PA2BWDM09D",
+    "name": "Paks2 - REV8 T&M CR1"
+  },
+  {
+    "id": 88,
+    "code": "FNXOSPO03T",
+    "name": "FORNAX - T&M 2026 ELŐLEG RÉSZ"
+  },
+  {
+    "id": 89,
+    "code": "HIPFNDM02L",
+    "name": "HIPA - IBM SW követés"
+  },
+  {
+    "id": 90,
+    "code": "100_MVIFNDM28D",
+    "name": "MVMI - FileNet upgrade 2026"
+  },
+  {
+    "id": 91,
+    "code": "100_HIPFNDM03D",
+    "name": "HIPA - HIPER CR-ek"
+  },
+  {
+    "id": 92,
+    "code": "MVIFNDM03L",
+    "name": "MVMI - Aspose licensz 2026-2029"
+  },
+  {
+    "id": 93,
+    "code": "NKHOSPO03D",
+    "name": "NKOH - közbeszerzési portál rendszerfelülvizsgálat"
+  },
+  {
+    "id": 94,
+    "code": "KHBFNDM02D",
+    "name": "KH - Document Management Strategy"
+  },
+  {
+    "id": 95,
+    "code": "NLBPMDM01D",
+    "name": "NLB print management"
+  },
+  {
+    "id": 96,
+    "code": "ONFFNED04D",
+    "name": "MÁK - Filenet 3 környezet kialakítása"
+  },
+  {
+    "id": 97,
+    "code": "NKMFNDM10D",
+    "name": "NKM - DOKMAN LINUX Update"
+  },
+  {
+    "id": 98,
+    "code": "MVIFNDM27D",
+    "name": "MVMI - PLUTO NSCALE tanácsadás"
+  },
+  {
+    "id": 99,
+    "code": "ALFBWST01D",
+    "name": "ALFA - Sablontár jóváhagyással"
+  },
+  {
+    "id": 100,
+    "code": "TITFNDM02D",
+    "name": "OPTESZ -  48_Szerelői dokumentumok kezelése"
+  },
+  {
+    "id": 101,
+    "code": "IPOFNDM01D",
+    "name": "Ipoteka - ECM bevezetés"
+  },
+  {
+    "id": 102,
+    "code": "TITUMDM04D",
+    "name": "OPTESZ - Ultimate egyedi adatok és SAP interfész"
+  },
+  {
+    "id": 103,
+    "code": "TITFNDM07D",
+    "name": "OPTESZ - TIGÁZ integráció"
+  },
+  {
+    "id": 104,
+    "code": "NKMDWIS28D",
+    "name": "NKM - DWH EDGE T&M kertet"
+  },
+  {
+    "id": 105,
+    "code": "NKMDWIS29D",
+    "name": "NKM - DWH IIAS kiváltás CP4D-ra"
+  },
+  {
+    "id": 106,
+    "code": "TITUMDM05D",
+    "name": "OPTESZ - Főkosár entitás kialakítása"
+  },
+  {
+    "id": 107,
+    "code": "TITUMDM07D",
+    "name": "OPTESZ - DMS-SAP interface továbbfejlsztése"
+  },
+  {
+    "id": 108,
+    "code": "MAVFNDM01D",
+    "name": "MÁV - Volán FileNet migráció MVMI-ből"
+  },
+  {
+    "id": 109,
+    "code": "MVROSPR25S",
+    "name": "MAVIR Prizma Oppty 2025"
+  },
+  {
+    "id": 110,
+    "code": "BTHSSDM01D",
+    "name": "Bethesda Betegdokumentum szkennelés"
+  },
+  {
+    "id": 111,
+    "code": "NKMDWIS30D",
+    "name": "NKM - DWH DVACCS 3.ütem"
+  },
+  {
+    "id": 112,
+    "code": "ERSANCG04D",
+    "name": "ERSTE - COGNOS DASHBOARD"
+  },
+  {
+    "id": 113,
+    "code": "TITFNDM03D",
+    "name": "OPTESZ - DÁP Dokumentumkezelés"
+  },
+  {
+    "id": 114,
+    "code": "RGZFNDM30D",
+    "name": "Richter - OCR solution"
+  },
+  {
+    "id": 115,
+    "code": "NKMDWIS31D",
+    "name": "NKM - DWH UNITY"
+  },
+  {
+    "id": 116,
+    "code": "BAIFNDM01D",
+    "name": "BAI - ECM"
+  },
+  {
+    "id": 117,
+    "code": "NOVPEÜF01S",
+    "name": "NOVA - Pricing Engine ÜFM szolgáltatás"
+  },
+  {
+    "id": 118,
+    "code": "CIBFNDM24D",
+    "name": "CIB - FileNet upgrade (Doc2533611937)"
+  },
+  {
+    "id": 119,
+    "code": "HUCFNDM01D",
+    "name": "HUNGAROCONTROL - Dokumentum Menedzsment"
+  },
+  {
+    "id": 120,
+    "code": "MFGODRE01D",
+    "name": "MFG - ODM szabálymotor"
+  },
+  {
+    "id": 121,
+    "code": "HIPFNDM26S",
+    "name": "HIPA - SUPPORT 2026-2027"
+  },
+  {
+    "id": 122,
+    "code": "TITBWDM04D",
+    "name": "OPTESZ - Automatikus számlaiktatáshoz kapcsolódó Datacap fejlesztési igények"
+  },
+  {
+    "id": 123,
+    "code": "KHBANTM26S",
+    "name": "KHB - TDM éves support 2026-2027"
+  },
+  {
+    "id": 124,
+    "code": "ERSFNDM01L",
+    "name": "ERSTE - CP4BA licensz bővítés"
+  },
+  {
+    "id": 125,
+    "code": "HUCDCDM01D",
+    "name": "HUNGAROCONTROL - AI alapú számla érkeztetés"
+  },
+  {
+    "id": 126,
+    "code": "AUCBWDM01D",
+    "name": "AUCHAN - BPM"
+  },
+  {
+    "id": 127,
+    "code": "OAHDCDM01D",
+    "name": "OAH - AI PILOT"
+  },
+  {
+    "id": 128,
+    "code": "ALFBWDM01D",
+    "name": "ALFA - Beszerzési és szerződéskezelő rendszer"
+  },
+  {
+    "id": 129,
+    "code": "ZABFNDM01D",
+    "name": "ZABA - DMAISCAN"
+  },
+  {
+    "id": 130,
+    "code": "MAPFNDM01L",
+    "name": "MAP - FileNet és DataCap licensz beszerzés"
+  },
+  {
+    "id": 131,
+    "code": "MAPFNDM01D",
+    "name": "MAP - LTK/POSTA CR napok"
+  },
+  {
+    "id": 132,
+    "code": "MAKFNDM26S",
+    "name": "MÁK - FileNet Support OPPTY RÉSZ"
+  },
+  {
+    "id": 133,
+    "code": "PA2FNDM26S",
+    "name": "PA2 - FileNEt/BAW Support"
+  },
+  {
+    "id": 134,
+    "code": "PMIFNDM26S",
+    "name": "PMI - Support 2026"
+  },
+  {
+    "id": 135,
+    "code": "GARFNDM27S",
+    "name": "GHG - Support 2026/27"
+  },
+  {
+    "id": 136,
+    "code": "TITBWDM07D",
+    "name": "OPTESZ - Beszerzési opcióhoz kapcsolódó továbbfejlesztési igények CR2"
+  },
+  {
+    "id": 137,
+    "code": "NKHOSPO26S",
+    "name": "NKOH - Support 2026"
+  },
+  {
+    "id": 138,
+    "code": "IHTOSPO01D",
+    "name": "IHT - Beszerzés Támogató Rendszer – IHT Portál"
+  },
+  {
+    "id": 139,
+    "code": "HIPFNDM02D",
+    "name": "HIPA - HIPER MIGRÁCIÓ CR"
+  },
+  {
+    "id": 140,
+    "code": "NKMFNDM21D",
+    "name": "NKM - FN és BAW Upgrade"
+  },
+  {
+    "id": 141,
+    "code": "TITFNDM06D",
+    "name": "OPTESZ - IBM upgrade"
+  },
+  {
+    "id": 142,
+    "code": "HVKBWDM26S",
+    "name": "HVK - Beszerzési rendszer support"
+  },
+  {
+    "id": 143,
+    "code": "HVKDCDM26S",
+    "name": "HVK - DMAIScan Support"
+  },
+  {
+    "id": 144,
+    "code": "DKUOSPO02T",
+    "name": "FORNAX T&M 2026 OPPORTUNITY RÉSZ"
+  },
+  {
+    "id": 145,
+    "code": "ERSFNDM12D",
+    "name": "ERSTE - Dokumentum feldolgozás AI - új folamatok"
+  },
+  {
+    "id": 146,
+    "code": "MVIIBFN06E",
+    "name": "MVMI - Filenet oktatás 2026"
+  },
+  {
+    "id": 147,
+    "code": "MVIIBDB01E",
+    "name": "MVMI - DB2 oktatás"
+  },
+  {
+    "id": 148,
+    "code": "MVMIBAR01D",
+    "name": "MVM - Archiválás struktúrált és struktúrálatlan adatokhoz"
+  },
+  {
+    "id": 149,
+    "code": "TITUMDM16D",
+    "name": "OPTESZ - Igazgatósági ülések"
+  },
+  {
+    "id": 150,
+    "code": "OAHFNDM07D",
+    "name": "OAH - FileNet upgrade"
+  },
+  {
+    "id": 151,
+    "code": "PA2FNDM09D",
+    "name": "Paks2 - FileNet\\BAW upgrade"
+  },
+  {
+    "id": 152,
+    "code": "EGIFNDM06D",
+    "name": "EGIS - FileNet upgrade"
+  },
+  {
+    "id": 153,
+    "code": "ERSFNDM26S",
+    "name": "ERSTE - FileNet support 2026"
+  },
+  {
+    "id": 154,
+    "code": "DKUOSPO04T",
+    "name": "FORNAX - T&M SUPPORT OPPORTUNITY RÉSZ"
+  },
+  {
+    "id": 155,
+    "code": "CIBFNDM28D",
+    "name": "CIB - Paperless process - classdefs' creation"
+  },
+  {
+    "id": 156,
+    "code": "RGZFNDM06D",
+    "name": "Richter - FileNet upgrade"
+  },
+  {
+    "id": 157,
+    "code": "HIPFNDM04D",
+    "name": "HIPA - HIPER ÉLESÍTÉS KRITIKUS CR4"
+  },
+  {
+    "id": 158,
+    "code": "T36IBDB03E",
+    "name": "T360 - DB2 viszolteladói ajánlat"
+  },
+  {
+    "id": 159,
+    "code": "NKMDWIS33D",
+    "name": "NKM - DWH DÉMÁSZ SCADA tervezés fejlesztés."
+  },
+  {
+    "id": 160,
+    "code": "CIBFNDM30D",
+    "name": "CIB - FileNet költöztetés Hyper-V Spectrum Scale Clusterre"
+  },
+  {
+    "id": 161,
+    "code": "MVIFNDM29D",
+    "name": "MVMI - S4HANA HCM upgrade ICCSAP átállás"
+  },
+  {
+    "id": 162,
+    "code": "NKMBWDM07D",
+    "name": "NKM - eSZAB kivezetés"
+  },
+  {
+    "id": 163,
+    "code": "MVRFNDM09D",
+    "name": "MAVIR - IBM FileNet áttérés OpenShiftre"
+  },
+  {
+    "id": 164,
+    "code": "KHBANOD26S",
+    "name": "KHB - CMOD & RB üzemeltetés és support"
+  },
+  {
+    "id": 165,
+    "code": "OAHFNDM08D",
+    "name": "OAH - Felülhitelesítés"
+  },
+  {
+    "id": 166,
+    "code": "CIBANTM01D",
+    "name": "CIB - Optim alapú archiválás és tesztadatmenedzsment"
+  },
+  {
+    "id": 167,
+    "code": "CIBFNDM31D",
+    "name": "CIB - Szabályozástár CR3"
+  },
+  {
+    "id": 168,
+    "code": "FCMCCAI01D",
+    "name": "FCM -CCAI"
+  },
+  {
+    "id": 169,
+    "code": "KHBCMDM10D",
+    "name": "KHB - CMoD infrastruktúra átalakítás 2026"
+  },
+  {
+    "id": 170,
+    "code": "KSKCCAI26S",
+    "name": "KSZK - CCAI support"
+  },
+  {
+    "id": 171,
+    "code": "GENDCDM01D",
+    "name": "GENERALI - KOFAX kiváltás DATACAP-pel"
+  },
+  {
+    "id": 172,
+    "code": "NKMFNDM22D",
+    "name": "NKM - FN plomba projekt"
+  },
+  {
+    "id": 173,
+    "code": "ERSFNDM13D",
+    "name": "ERSTE - IMR EAKTA kiváltás"
+  },
+  {
+    "id": 174,
+    "code": "GARIBAI01L",
+    "name": "GAR - IBM Bob AI licensz értékesítés"
+  },
+  {
+    "id": 175,
+    "code": "CIBFNDM32D",
+    "name": "CIB - FileNet FaktorIMX"
   }
 ]

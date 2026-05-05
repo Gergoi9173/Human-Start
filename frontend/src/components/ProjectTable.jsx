@@ -74,7 +74,7 @@ export default function ProjectTable({ projects, resources, allocations, onAddAl
                 <Fragment key={project.id}>
                   <tr className={`hover:bg-muted/30 transition-colors cursor-pointer ${isExpanded ? 'bg-muted/10' : ''}`} onClick={() => toggleExpand(project.id)}>
                     <td className="px-6 py-4 font-medium text-foreground">
-                      {project.name} <span className="text-muted-foreground text-xs ml-2">({project.code})</span>
+                      {project.code} {project.name && <span className="text-muted-foreground text-xs ml-2">- {project.name}</span>}
                     </td>
                     <td className="px-6 py-4 text-muted-foreground text-xs">
                       {projAllocations.length} resource{projAllocations.length !== 1 ? 's' : ''}

@@ -19,7 +19,7 @@ export default function AllocationForm({
   const [percentage, setPercentage] = useState(20);
 
   const resourceOptions = resources ? resources.map(r => ({ value: r.id, label: `${r.name} (${r.position})` })) : [];
-  const projectOptions = projects.map(p => ({ value: p.id, label: p.code }));
+  const projectOptions = projects.map(p => ({ value: p.id, label: p.name ? `${p.code} - ${p.name}` : p.code }));
 
   const handleSubmit = (e) => {
     e.preventDefault();
