@@ -139,16 +139,19 @@ function App() {
             <p className="text-muted-foreground mt-1 text-sm">Manage team allocations effortlessly.</p>
           </div>
           
-          <div className="flex flex-col items-end gap-1">
-            {!isCurrentWeek && (
-              <div className="text-red-500 font-bold text-xs uppercase tracking-wider animate-pulse mr-2">Nem az aktuális munkahét</div>
-            )}
-            <div className="flex items-center space-x-4">
-            <WeekPicker 
-              selectedDate={selectedDate} 
-              setSelectedDate={setSelectedDate} 
-              dateString={dateString} 
-            />
+          <div className="flex items-start space-x-4 mt-4 md:mt-0">
+            <div className="flex flex-col items-center relative">
+              {!isCurrentWeek && (
+                <div className="absolute -top-5 text-red-500 font-bold text-[10px] uppercase tracking-wider whitespace-nowrap">
+                  Nem az aktuális munkahét
+                </div>
+              )}
+              <WeekPicker 
+                selectedDate={selectedDate} 
+                setSelectedDate={setSelectedDate} 
+                dateString={dateString} 
+              />
+            </div>
             
             <button 
               onClick={() => { setSelectedResource(null); setIsFormOpen(true); }}
@@ -174,7 +177,6 @@ function App() {
             >
               <LogOut className="w-4 h-4" />
             </button>
-          </div>
           </div>
         </div>
 
