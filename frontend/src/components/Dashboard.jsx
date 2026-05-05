@@ -10,9 +10,9 @@ export default function Dashboard({ resources, allocations }) {
     }
   });
 
-  const totalCapacity = resources.length * 100;
-  const utilizedCapacity = Object.values(resourceTotals).reduce((sum, val) => sum + val, 0);
-  const utilizationPercent = totalCapacity > 0 ? Math.round((utilizedCapacity / totalCapacity) * 100) : 0;
+  const totalDays = resources.length * 5;
+  const utilizedDays = (Object.values(resourceTotals).reduce((sum, val) => sum + val, 0) / 100) * 5;
+  const utilizationPercent = totalDays > 0 ? Math.round((utilizedDays / totalDays) * 100) : 0;
   
   const overAllocated = Object.entries(resourceTotals).filter(([_, total]) => total > 100).length;
   const fullyAllocated = Object.entries(resourceTotals).filter(([_, total]) => total === 100).length;
@@ -26,7 +26,7 @@ export default function Dashboard({ resources, allocations }) {
         <div>
           <div className="text-sm text-muted-foreground font-medium uppercase tracking-wider">Total Utilization</div>
           <div className="text-4xl font-black text-primary drop-shadow-sm">{utilizationPercent}%</div>
-          <div className="text-xs text-muted-foreground mt-1">{utilizedCapacity} / {totalCapacity} points</div>
+          <div className="text-xs text-muted-foreground mt-1">{utilizedDays} / {totalDays} nap</div>
         </div>
       </div>
 
