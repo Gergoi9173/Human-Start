@@ -17476,5 +17476,14 @@
     "frame_id": 9,
     "date": "2026.05.04",
     "percentage": 20
+  },
+  {
+    "id": 1943,
+    "resource_id": 3,
+    "project_id": 5,
+    "requester_id": 2,
+    "frame_id": 9,
+    "date": "2026.05.04",
+    "percentage": 60
   }
 ]
