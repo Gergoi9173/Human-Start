@@ -48,9 +48,8 @@ export default function RequesterTable({ requesters, resources, allocations, onA
     return reqAllocations.reduce((sum, a) => sum + a.percentage, 0);
   };
 
-  const getResourceName = (resourceId) => {
-    const res = resources.find(r => r.id === resourceId);
-    return res ? res.name : 'Unknown Resource';
+  const getResource = (resourceId) => {
+    return resources.find(r => r.id === resourceId);
   };
 
   return (
@@ -118,7 +117,10 @@ export default function RequesterTable({ requesters, resources, allocations, onA
                             >
                               <div className="flex-1 flex items-center justify-between">
                                 <div className="flex flex-col">
-                                  <span className="font-bold text-sm text-slate-900">{getResourceName(alloc.resource_id)}</span>
+                                  <span className="font-bold text-sm text-slate-900">
+                                    {getResource(alloc.resource_id)?.name} 
+                                    <span className="text-muted-foreground text-xs ml-2 font-normal">({getResource(alloc.resource_id)?.position})</span>
+                                  </span>
                                   <span className="text-slate-500 text-[10px] uppercase tracking-wider font-bold">{alloc.project?.code} • {alloc.frame?.name}</span>
                                 </div>
                                 <div className="flex items-center gap-3">

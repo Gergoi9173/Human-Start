@@ -1,166 +1,44 @@
 [
-  {
-    "id": 1,
-    "name": "Malyik József"
-  },
-  {
-    "id": 2,
-    "name": "Gárdos Attila György"
-  },
-  {
-    "id": 3,
-    "name": "Nagy Zsolt"
-  },
-  {
-    "id": 4,
-    "name": "Márton Márton"
-  },
-  {
-    "id": 5,
-    "name": "Sztankovics András"
-  },
-  {
-    "id": 6,
-    "name": "Szlávik Barnabás"
-  },
-  {
-    "id": 7,
-    "name": "Gintl Ákos"
-  },
-  {
-    "id": 8,
-    "name": "Varjú Zalán Péter"
-  },
-  {
-    "id": 9,
-    "name": "Fügedi Zsolt"
-  },
-  {
-    "id": 10,
-    "name": "Nagy Dávid"
-  },
-  {
-    "id": 11,
-    "name": "Valovics Iván"
-  },
-  {
-    "id": 12,
-    "name": "Ferenczi John"
-  },
-  {
-    "id": 13,
-    "name": "Jaeger Tamás"
-  },
-  {
-    "id": 14,
-    "name": "Blahota Marcell"
-  },
-  {
-    "id": 15,
-    "name": "Kenesei László"
-  },
-  {
-    "id": 16,
-    "name": "Kiss Gábor"
-  },
-  {
-    "id": 17,
-    "name": "Zentai Balázs"
-  },
-  {
-    "id": 18,
-    "name": "Hegedüs Botond"
-  },
-  {
-    "id": 19,
-    "name": "Pálvölgyi Bence"
-  },
-  {
-    "id": 20,
-    "name": "Dani Szabolcs"
-  },
-  {
-    "id": 21,
-    "name": "Farkas Levente"
-  },
-  {
-    "id": 22,
-    "name": "Pozsonyi Balázs Dávid"
-  },
-  {
-    "id": 23,
-    "name": "Juhász Mátyás"
-  },
-  {
-    "id": 24,
-    "name": "Fazekas Bence Mihály"
-  },
-  {
-    "id": 25,
-    "name": "Nőthig Ádám"
-  },
-  {
-    "id": 26,
-    "name": "Erdődi Milán"
-  },
-  {
-    "id": 27,
-    "name": "Rimmel Botond"
-  },
-  {
-    "id": 28,
-    "name": "Kondás Dávid"
-  },
-  {
-    "id": 29,
-    "name": "Szalai Zsombor"
-  },
-  {
-    "id": 30,
-    "name": "Tóth István"
-  },
-  {
-    "id": 31,
-    "name": "László Zsolt"
-  },
-  {
-    "id": 32,
-    "name": "Mózsa Ábel"
-  },
-  {
-    "id": 33,
-    "name": "Énekes László"
-  },
-  {
-    "id": 34,
-    "name": "Oláh Zsombor"
-  },
-  {
-    "id": 35,
-    "name": "Lindmayer Kinga"
-  },
-  {
-    "id": 36,
-    "name": "Geyer József"
-  },
-  {
-    "id": 37,
-    "name": "Koleszár Gábor"
-  },
-  {
-    "id": 38,
-    "name": "Kertész László"
-  },
-  {
-    "id": 39,
-    "name": "Bihari Bence"
-  },
-  {
-    "id": 40,
-    "name": "Sebők Richárd"
-  },
-  {
-    "id": 41,
-    "name": "Csóri Bence"
-  }
+  {"id": 1, "name": "Malyik József", "position": "TL"},
+  {"id": 2, "name": "Gárdos Attila György", "position": "BA"},
+  {"id": 3, "name": "Nagy Zsolt", "position": "Fullstack DEV"},
+  {"id": 4, "name": "Márton Márton", "position": "Fullstack DEV"},
+  {"id": 5, "name": "Sztankovics András", "position": "FE DEV"},
+  {"id": 6, "name": "Szlávik Barnabás", "position": "AI DEV"},
+  {"id": 7, "name": "Gintl Ákos", "position": "TL"},
+  {"id": 8, "name": "Varjú Zalán Péter", "position": "SA"},
+  {"id": 9, "name": "Fügedi Zsolt", "position": "SA"},
+  {"id": 10, "name": "Nagy Dávid", "position": "BAW DEV"},
+  {"id": 11, "name": "Valovics Iván", "position": "SA"},
+  {"id": 12, "name": "Ferenczi John", "position": "BE DEV"},
+  {"id": 13, "name": "Jaeger Tamás", "position": "BE DEV"},
+  {"id": 14, "name": "Blahota Marcell", "position": "BE DEV"},
+  {"id": 15, "name": "Kenesei László", "position": "SE"},
+  {"id": 16, "name": "Kiss Gábor", "position": "FE DEV"},
+  {"id": 17, "name": "Zentai Balázs", "position": "SE"},
+  {"id": 18, "name": "Hegedüs Botond", "position": "TL"},
+  {"id": 19, "name": "Pálvölgyi Bence", "position": "BA"},
+  {"id": 20, "name": "Dani Szabolcs", "position": "BE DEV"},
+  {"id": 21, "name": "Farkas Levente", "position": "SA"},
+  {"id": 22, "name": "Pozsonyi Balázs Dávid", "position": "BE DEV"},
+  {"id": 23, "name": "Juhász Mátyás", "position": "FE DEV"},
+  {"id": 24, "name": "Fazekas Bence Mihály", "position": "Data Engineer"},
+  {"id": 25, "name": "Nőthig Ádám", "position": "SE"},
+  {"id": 26, "name": "Erdődi Milán", "position": "BA"},
+  {"id": 27, "name": "Rimmel Botond", "position": "BA"},
+  {"id": 28, "name": "Kondás Dávid", "position": "SA"},
+  {"id": 29, "name": "Szalai Zsombor", "position": "BE DEV"},
+  {"id": 30, "name": "Tóth István", "position": "BA"},
+  {"id": 31, "name": "László Zsolt", "position": "BE DEV"},
+  {"id": 32, "name": "Mózsa Ábel", "position": "BA"},
+  {"id": 33, "name": "Énekes László", "position": "FE DEV"},
+  {"id": 34, "name": "Oláh Zsombor", "position": "BA"},
+  {"id": 35, "name": "Lindmayer Kinga", "position": "BE DEV"},
+  {"id": 36, "name": "Geyer József", "position": "SE"},
+  {"id": 37, "name": "Koleszár Gábor", "position": "Data Engineer"},
+  {"id": 38, "name": "Kertész László", "position": "BAW DEV"},
+  {"id": 39, "name": "Bihari Bence", "position": "BE DEV"},
+  {"id": 40, "name": "Sebők Richárd", "position": "Data Engineer"},
+  {"id": 41, "name": "Csóri Bence", "position": "SE"},
+  {"id": 42, "name": "Czipó András", "position": "SA"}
 ]

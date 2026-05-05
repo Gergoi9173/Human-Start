@@ -71,7 +71,7 @@ export default function AllocationTable({ resources, allocations, onAddAllocatio
                 <Fragment key={resource.id}>
                   <tr className={`hover:bg-muted/30 transition-colors cursor-pointer ${isExpanded ? 'bg-muted/10' : ''}`} onClick={() => toggleExpand(resource.id)}>
                     <td className="px-6 py-4 font-medium text-foreground">
-                      {resource.name}
+                      {resource.name} <span className="text-muted-foreground text-xs ml-2">({resource.position})</span>
                     </td>
                     <td className="px-6 py-4 text-muted-foreground text-xs">
                       {resAllocations.length} project{resAllocations.length !== 1 ? 's' : ''}

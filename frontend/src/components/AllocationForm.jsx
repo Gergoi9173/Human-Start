@@ -12,13 +12,13 @@ export default function AllocationForm({
   onSave, 
   onClose 
 }) {
-  const [resourceId, setResourceId] = useState(initialResource ? { value: initialResource.id, label: initialResource.name } : null);
+  const [resourceId, setResourceId] = useState(initialResource ? { value: initialResource.id, label: `${initialResource.name} (${initialResource.position})` } : null);
   const [projectId, setProjectId] = useState(null);
   const [requesterId, setRequesterId] = useState('');
   const [frameId, setFrameId] = useState('');
   const [percentage, setPercentage] = useState(20);
 
-  const resourceOptions = resources ? resources.map(r => ({ value: r.id, label: r.name })) : [];
+  const resourceOptions = resources ? resources.map(r => ({ value: r.id, label: `${r.name} (${r.position})` })) : [];
   const projectOptions = projects.map(p => ({ value: p.id, label: p.code }));
 
   const handleSubmit = (e) => {
@@ -40,7 +40,7 @@ export default function AllocationForm({
       <div className="bg-white dark:bg-card rounded-2xl shadow-xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in-95 duration-200">
         <div className="flex items-center justify-between p-6 border-b border-border">
           <h2 className="text-xl font-semibold">
-            {initialResource ? `Allocate: ${initialResource.name}` : 'New Allocation'}
+            {initialResource ? `Allocate: ${initialResource.name} (${initialResource.position})` : 'New Allocation'}
           </h2>
           <button onClick={onClose} className="p-2 hover:bg-muted rounded-full transition-colors">
             <X className="w-5 h-5" />
