@@ -28,7 +28,30 @@ function App() {
   const [activeTab, setActiveTab] = useState('resources');
 
   const startOfCurrentWeek = startOfWeek(selectedDate, { weekStartsOn: 1 });
+  const actualCurrentWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
+  const isCurrentWeek = startOfCurrentWeek.getTime() === actualCurrentWeek.getTime();
   const dateString = format(startOfCurrentWeek, 'yyyy.MM.dd');
+
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    setSearchQuery('');
+  };
+
+  const filteredResources = resources.filter(r => 
+    r.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    (r.position && r.position.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
+
+  const filteredRequesters = requesters.filter(r => 
+    r.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const filteredProjects = projects.filter(p => 
+    p.code.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    (p.name && p.name.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
 
   useEffect(() => {
     const session = localStorage.getItem('isLoggedIn');
@@ -116,7 +139,11 @@ function App() {
             <p className="text-muted-foreground mt-1 text-sm">Manage team allocations effortlessly.</p>
           </div>
           
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-col items-end gap-1">
+            {!isCurrentWeek && (
+              <div className="text-red-500 font-bold text-xs uppercase tracking-wider animate-pulse mr-2">Nem az aktuális munkahét</div>
+            )}
+            <div className="flex items-center space-x-4">
             <WeekPicker 
               selectedDate={selectedDate} 
               setSelectedDate={setSelectedDate} 
@@ -148,37 +175,53 @@ function App() {
               <LogOut className="w-4 h-4" />
             </button>
           </div>
+          </div>
         </div>
 
         {/* Dashboard */}
         <Dashboard resources={resources} allocations={allocations} />
 
-        {/* View Tabs */}
-        <div className="flex space-x-2 bg-muted/30 p-1.5 rounded-xl border border-border/50 w-fit">
-          <button 
-            onClick={() => setActiveTab('resources')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'resources' ? 'bg-white shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}`}
-          >
-            Resources
-          </button>
-          <button 
-            onClick={() => setActiveTab('requesters')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'requesters' ? 'bg-white shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}`}
-          >
-            Requester
-          </button>
-          <button 
-            onClick={() => setActiveTab('projects')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'projects' ? 'bg-white shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}`}
-          >
-            Projects
-          </button>
+        {/* View Tabs and Search */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div className="flex space-x-2 bg-muted/30 p-1.5 rounded-xl border border-border/50 w-fit">
+            <button 
+              onClick={() => handleTabChange('resources')}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'resources' ? 'bg-white shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}`}
+            >
+              Resources
+            </button>
+            <button 
+              onClick={() => handleTabChange('requesters')}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'requesters' ? 'bg-white shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}`}
+            >
+              Requester
+            </button>
+            <button 
+              onClick={() => handleTabChange('projects')}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'projects' ? 'bg-white shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}`}
+            >
+              Projects
+            </button>
+          </div>
+          
+          <div className="relative w-full md:w-64">
+            <input 
+              type="text"
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              placeholder="Keresés..."
+              className="w-full pl-10 pr-4 py-2 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all shadow-sm text-sm"
+            />
+            <svg className="w-4 h-4 absolute left-3 top-3 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
         </div>
 
         {/* Main Table */}
         {activeTab === 'resources' && (
           <AllocationTable 
-            resources={resources} 
+            resources={filteredResources} 
             allocations={allocations} 
             onAddAllocation={handleAddAllocation}
             onDeleteAllocation={handleDeleteAllocation}
@@ -188,7 +231,7 @@ function App() {
         
         {activeTab === 'requesters' && (
           <RequesterTable 
-            requesters={requesters}
+            requesters={filteredRequesters}
             resources={resources}
             allocations={allocations}
             onAddAllocation={handleAddAllocation}
@@ -199,7 +242,7 @@ function App() {
         
         {activeTab === 'projects' && (
           <ProjectTable 
-            projects={projects}
+            projects={filteredProjects}
             resources={resources}
             allocations={allocations}
             onAddAllocation={handleAddAllocation}
