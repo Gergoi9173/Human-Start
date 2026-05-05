@@ -115,7 +115,10 @@ export default function AllocationTable({ resources, allocations, onAddAllocatio
                             >
                               <div className="flex-1 flex items-center justify-between">
                                 <div className="flex flex-col">
-                                  <span className="font-bold text-sm text-slate-900">{alloc.project.code} {alloc.project.name ? `- ${alloc.project.name}` : ''}</span>
+                                  <span className="text-sm text-slate-900">
+                                    <span className="font-bold">{alloc.project.code}</span>
+                                    {alloc.project.name && <span className="font-normal ml-1">({alloc.project.name})</span>}
+                                  </span>
                                   <span className="text-slate-500 text-[10px] uppercase tracking-wider font-bold">{alloc.frame.name} • {alloc.requester.name}</span>
                                 </div>
                                 <div className="flex items-center gap-3">

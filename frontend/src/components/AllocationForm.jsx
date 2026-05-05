@@ -19,7 +19,19 @@ export default function AllocationForm({
   const [percentage, setPercentage] = useState(20);
 
   const resourceOptions = resources ? resources.map(r => ({ value: r.id, label: `${r.name} (${r.position})` })) : [];
-  const projectOptions = projects.map(p => ({ value: p.id, label: p.name ? `${p.code} - ${p.name}` : p.code }));
+  const formatProjectOption = ({ code, name, label }) => {
+    if (code) {
+      return (
+        <div>
+          <span className="font-bold">{code}</span>
+          {name && <span className="font-normal ml-1">({name})</span>}
+        </div>
+      );
+    }
+    return label;
+  };
+
+  const projectOptions = projects.map(p => ({ value: p.id, code: p.code, name: p.name, label: p.name ? `${p.code} (${p.name})` : p.code }));
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,6 +79,7 @@ export default function AllocationForm({
             <label className="text-sm font-medium text-foreground">Project</label>
             <Select 
               options={projectOptions}
+              formatOptionLabel={formatProjectOption}
               value={projectId}
               onChange={setProjectId}
               className="text-black"

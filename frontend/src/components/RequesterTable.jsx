@@ -121,7 +121,11 @@ export default function RequesterTable({ requesters, resources, allocations, onA
                                     {getResource(alloc.resource_id)?.name} 
                                     <span className="text-muted-foreground text-xs ml-2 font-normal">({getResource(alloc.resource_id)?.position})</span>
                                   </span>
-                                  <span className="text-slate-500 text-[10px] uppercase tracking-wider font-bold">{alloc.project?.code} {alloc.project?.name ? `- ${alloc.project.name}` : ''} • {alloc.frame?.name}</span>
+                                  <span className="text-slate-500 text-[10px] uppercase tracking-wider">
+                                    <span className="font-bold">{alloc.project?.code}</span>
+                                    {alloc.project?.name && <span className="font-normal ml-1">({alloc.project.name})</span>}
+                                    <span className="font-bold ml-1">• {alloc.frame?.name}</span>
+                                  </span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                   <InlineEditPercentage 
