@@ -5,6 +5,8 @@ import { startOfWeek, format } from 'date-fns';
 import WeekPicker from './components/WeekPicker';
 import Dashboard from './components/Dashboard';
 import AllocationTable from './components/AllocationTable';
+import RequesterTable from './components/RequesterTable';
+import ProjectTable from './components/ProjectTable';
 import AllocationForm from './components/AllocationForm';
 import Login from './components/Login';
 
@@ -23,6 +25,7 @@ function App() {
   
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [selectedResource, setSelectedResource] = useState(null);
+  const [activeTab, setActiveTab] = useState('resources');
 
   const startOfCurrentWeek = startOfWeek(selectedDate, { weekStartsOn: 1 });
   const dateString = format(startOfCurrentWeek, 'yyyy.MM.dd');
@@ -150,14 +153,60 @@ function App() {
         {/* Dashboard */}
         <Dashboard resources={resources} allocations={allocations} />
 
+        {/* View Tabs */}
+        <div className="flex space-x-2 bg-muted/30 p-1.5 rounded-xl border border-border/50 w-fit">
+          <button 
+            onClick={() => setActiveTab('resources')}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'resources' ? 'bg-white shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}`}
+          >
+            Resources
+          </button>
+          <button 
+            onClick={() => setActiveTab('requesters')}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'requesters' ? 'bg-white shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}`}
+          >
+            Requester
+          </button>
+          <button 
+            onClick={() => setActiveTab('projects')}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'projects' ? 'bg-white shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}`}
+          >
+            Projects
+          </button>
+        </div>
+
         {/* Main Table */}
-        <AllocationTable 
-          resources={resources} 
-          allocations={allocations} 
-          onAddAllocation={handleAddAllocation}
-          onDeleteAllocation={handleDeleteAllocation}
-          onUpdateAllocation={handleUpdateAllocation}
-        />
+        {activeTab === 'resources' && (
+          <AllocationTable 
+            resources={resources} 
+            allocations={allocations} 
+            onAddAllocation={handleAddAllocation}
+            onDeleteAllocation={handleDeleteAllocation}
+            onUpdateAllocation={handleUpdateAllocation}
+          />
+        )}
+        
+        {activeTab === 'requesters' && (
+          <RequesterTable 
+            requesters={requesters}
+            resources={resources}
+            allocations={allocations}
+            onAddAllocation={handleAddAllocation}
+            onDeleteAllocation={handleDeleteAllocation}
+            onUpdateAllocation={handleUpdateAllocation}
+          />
+        )}
+        
+        {activeTab === 'projects' && (
+          <ProjectTable 
+            projects={projects}
+            resources={resources}
+            allocations={allocations}
+            onAddAllocation={handleAddAllocation}
+            onDeleteAllocation={handleDeleteAllocation}
+            onUpdateAllocation={handleUpdateAllocation}
+          />
+        )}
 
         {/* Modal Form */}
         {isFormOpen && (
